@@ -1,0 +1,22 @@
+<h1>New game</h1>
+<div>
+  <p id ="score">Your total score is: <%= session[:score_id]  %></p>
+</div>
+<div>
+  <% @letters.each do |letter| %>
+   <span class ="letter-design"><%= letter.upcase%></span>
+  <% end %>
+</div>
+
+<p>What is the longest word you can find?</p>
+
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <input type="text" name = "word">
+  <input type="submit" value = "Play">
+</form>
+
+
+
+
